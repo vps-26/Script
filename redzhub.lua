@@ -1,7 +1,7 @@
 -- [[ REDZ HUB - Steal an Egg ]] --
 -- Author: Redz
 -- Theme: Modern Dark-Blue & White
--- Features: Key System (Firebase RTDB), Main, Tools, Optimizer
+-- Database: Firebase RTDB Asia-Southeast1
 
 local CoreGui = game:GetService("CoreGui")
 local Players = game:GetService("Players")
@@ -59,7 +59,7 @@ if not ScreenGui.Parent then
 end
 
 --------------------------------------------------------------------------------
--- 0. FIREBASE KEY SYSTEM (REST API)
+-- 0. FIREBASE KEY SYSTEM (REST API - ASIA SOUTHEAST 1)
 --------------------------------------------------------------------------------
 local function verifyKeyInFirebase(userKey)
     if not userKey or #userKey == 0 then
@@ -68,8 +68,8 @@ local function verifyKeyInFirebase(userKey)
 
     local key = string.gsub(userKey, "%s+", "") -- Clean whitespace
     local endpoints = {
-        "https://limone-24cc5-default-rtdb.firebaseio.com/key_redzhub/" .. key .. ".json",
-        "https://limone-24cc5.firebaseio.com/key_redzhub/" .. key .. ".json"
+        "https://limone-24cc5-default-rtdb.asia-southeast1.firebasedatabase.app/key_redzhub/" .. key .. ".json",
+        "https://limone-24cc5-default-rtdb.firebaseio.com/key_redzhub/" .. key .. ".json"
     }
 
     local responseData = nil
@@ -156,7 +156,7 @@ local KeyInputBox = Instance.new("TextBox")
 KeyInputBox.Size = UDim2.new(1, -40, 0, 38)
 KeyInputBox.Position = UDim2.new(0, 20, 0, 60)
 KeyInputBox.BackgroundColor3 = Color3.fromRGB(26, 26, 35)
-KeyInputBox.PlaceholderText = "Masukkan 8 Digit Key (Contoh: FREE1DAY)"
+KeyInputBox.PlaceholderText = "Masukkan Key (Contoh: FREE1DAY)"
 KeyInputBox.PlaceholderColor3 = Color3.fromRGB(120, 120, 140)
 KeyInputBox.Text = ""
 KeyInputBox.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -504,7 +504,7 @@ createSection(MainPage, "Auto Sell - Rarity Target")
 createMultiSelectGrid(MainPage, Rarities, Config.SelectedSellRarities)
 
 --------------------------------------------------------------------------------
--- 6. CONTENT TAB TOOLS (BARU)
+-- 6. CONTENT TAB TOOLS
 --------------------------------------------------------------------------------
 createSection(ToolsPage, "Protection & Immunity")
 
